@@ -1,3 +1,4 @@
+# Importing Libraries
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -13,7 +14,7 @@ df = pd.read_csv(file_path)
 # Keep only the relevant columns
 df = df[['Type', 'Episodes']]
 
-# Drop rows with missing values in selected columns
+# Drop rows with missing values
 df = df.dropna(subset=['Type', 'Episodes'])
 
 # Convert 'Episodes' to numeric values
@@ -35,13 +36,13 @@ scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
-# Initialize the Logistic Regression model with regularization
+# Initialize the Logistic Regression model 
 log_reg = LogisticRegression(C=0.5, random_state=42)
 
 # Train the model
 log_reg.fit(X_train_scaled, y_train)
 
-# Make predictions
+# Predictions
 y_pred = log_reg.predict(X_test_scaled)
 y_prob = log_reg.predict_proba(X_test_scaled)[:, 1]  
 
