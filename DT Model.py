@@ -1,3 +1,4 @@
+# Importing Libraries
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.tree import DecisionTreeClassifier
@@ -36,9 +37,9 @@ clf = DecisionTreeClassifier(random_state=42)
 # Train the model
 clf.fit(X_train, y_train)
 
-# Make predictions
+# Predictions
 y_pred = clf.predict(X_test)
-y_prob = clf.predict_proba(X_test)[:, 1]  # Probabilities for the positive class
+y_prob = clf.predict_proba(X_test)[:, 1]  
 
 # Calculate performance metrics
 accuracy = accuracy_score(y_test, y_pred)
